@@ -23,9 +23,11 @@ Running `grunt test` will run the unit tests with karma.
 
 This project does the Yeoman Angular Generator.
 
+http://yeoman.io/codelab/setup.html
+
 I am going to try out this tutorial since I'm not sure which tutorial i tried before with yeoman. if this doesn't work,
 I will go back to the codesnippets video tutorial that I have.
-http://yeoman.io/codelab/setup.html
+
 
 
 This tutorial helped with getting the right node version since nvm is on c9.
