@@ -10,20 +10,24 @@
 angular.module('mytodoApp')
   .controller('MainCtrl', function ($scope, localStorageService) {
     
-    var todosInStore = localStorageService.get('todos');
+    var blocksInStore = localStorageService.get('blocks');
 
-    $scope.todos = todosInStore || [];
+    $scope.block  = "";
+    $scope.blocks = blocksInStore || [];
 
-    $scope.$watch('todos', function () {
-      localStorageService.set('todos', $scope.todos);
+    $scope.$watch('blocks', function () {
+      localStorageService.set('blocks', $scope.blocks);
     }, true);
     
     
-    $scope.addTodo = function () {
-      $scope.todos.push($scope.todo);
-      $scope.todo = '';
+    $scope.addBlock = function () {
+      console.log($scope.block);
+      if ($scope.block.length !== 0) {
+        $scope.blocks.push($scope.block);
+        $scope.block = '';
+      }
     };
-    $scope.removeTodo = function (index) {
-      $scope.todos.splice(index, 1);
+    $scope.removeBlock = function (index) {
+      $scope.blocks.splice(index, 1);
     };
   });

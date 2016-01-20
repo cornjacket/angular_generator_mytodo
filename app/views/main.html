@@ -1,11 +1,13 @@
 <div class="container">
 
-  <h2>My todos</h2>
-  <!-- Todos input -->
-  <form role="form" ng-submit="addTodo()">
+  <h2 class="text-center">ETo calculator</h2>
+  
+  <h3>Enter a new block</h3>
+  <!-- Block input -->
+  <form role="form" ng-submit="addBlock()">
     <div class="row">
       <div class="input-group">
-        <input type="text" ng-model="todo" placeholder="What needs to be done?" class="form-control">
+        <input type="text" ng-model="block" placeholder="Enter address, zipcode, or LAT, LON?" class="form-control">
         <span class="input-group-btn">
           <input type="submit" class="btn btn-primary" value="Add">
         </span>
@@ -13,12 +15,13 @@
     </div>
   </form>
 
-  <!-- Todos list -->
-  <div ui-sortable ng-model="todos">
-    <p class="input-group" ng-repeat="todo in todos" style="padding:5px 10px; cursor: move;">
-      <input type="text" ng-model="todo" class="form-control">
+  <!-- Blocks list -->
+  <h3>Saved blocks</h3>
+  <div ui-sortable ng-model="blocks">
+    <p class="input-group" ng-repeat="block in blocks" style="padding:5px 10px; cursor: move;">
+      <input type="text" ng-model="block" class="form-control">
       <span class="input-group-btn">
-        <button class="btn btn-danger" ng-click="removeTodo($index)" aria-label="Remove">X</button>
+        <button class="btn btn-danger" ng-click="removeBlock($index)" aria-label="Remove">X</button>
       </span>
     </p>
   </div>
