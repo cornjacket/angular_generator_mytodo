@@ -3,11 +3,11 @@
   <h2 class="text-center">ETo calculator</h2>
   
   <h3>Enter a new block</h3>
-  <!-- Block input -->
+
   <form role="form" ng-submit="addBlock()">
     <div class="row">
       <div class="input-group">
-        <input type="text" ng-model="block.input" placeholder="Enter LAT, LON" class="form-control">
+        <input type="text" ng-model="input" placeholder="Enter LAT, LON" class="form-control">
         <span class="input-group-btn">
           <input type="submit" class="btn btn-primary" value="Add">
         </span>
@@ -15,7 +15,6 @@
     </div>
   </form>
 
-  <!-- Blocks list -->
   <h3>Saved blocks</h3>
   <div ui-sortable ng-model="blocks">
     <p class="input-group" ng-repeat="block in blocks" style="padding:5px 10px; cursor: move;">
