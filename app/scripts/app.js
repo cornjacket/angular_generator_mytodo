@@ -25,14 +25,49 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
+        templateUrl: 'views/calculator.html',
+        controller: 'CalculatorCtrl',
+        controllerAs: 'main'
+      })    
+      .when('/dashboard', {
+        templateUrl: 'views/dashboard.html',
+        controller: 'DashboardCtrl',
         controllerAs: 'main'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
+      .when('/snapshot', {
+        templateUrl: 'views/snapshot.html',
+        controller: 'SnapshotCtrl',
         controllerAs: 'about'
+      })
+      .when('/irrigation', {
+        templateUrl: 'views/irrigation.html',
+        controller: 'IrrigationCtrl',
+        controllerAs: 'irrigation'
+      })
+      .when('/integration', {
+        templateUrl: 'views/integration.html',
+        controller: 'IntegrationCtrl',
+        controllerAs: 'integration'
+      })
+      .when('/settings', {
+        templateUrl: 'views/settings.html',
+        controller: 'SettingsCtrl',
+        controllerAs: 'settings'
+      })
+      .when('/services', {
+        templateUrl: 'views/services.html',
+        controller: 'ServicesCtrl',
+        controllerAs: 'services'
+      })
+      .when('/contact', {
+        templateUrl: 'views/contact.html',
+        controller: 'ContactCtrl',
+        controllerAs: 'contact'
+      })
+      .when('/calculator', {
+        templateUrl: 'views/calculator.html',
+        controller: 'CalculatorCtrl',
+        controllerAs: 'calculator'
       })
       .otherwise({
         redirectTo: '/'

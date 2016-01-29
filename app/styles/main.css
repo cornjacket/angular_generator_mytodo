@@ -62,7 +62,7 @@ body {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 730px;
+    max-width: 90%; /*1000px; /*730px; not sure why this is here. will it have an issue with the sidebar? DRT */
   }
 
   /* Remove the padding we set earlier */
@@ -313,5 +313,7 @@ http://startbootstrap.com/template-overviews/simple-sidebar/ */
 #third-header-title { color: white; }
 #company-name       { color: white; }
 
-
+.table td, .table th {
+   text-align: center;   
+}
 

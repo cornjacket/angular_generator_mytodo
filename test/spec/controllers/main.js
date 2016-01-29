@@ -8,6 +8,13 @@ describe('Controller: MainCtrl', function () {
   var MainCtrl,
     scope;
 
+  var validBlock = {
+     name: '',
+     lat:  '25',
+     lon:  '45',
+     address: ''
+  }
+
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();

@@ -12,8 +12,9 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/main.css"> 
     <!-- endbuild -->
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet"> <!-- DRT - is this the way to include -->
   </head>
   <body ng-app="mytodoApp">
     <!--[if lte IE 8]>
@@ -47,9 +48,68 @@
       </div><!-- /.container-fluid -->
     </nav>    
     
+    <nav class="navbar navbar-default second-header">
+      <div class="container-fluid">
     
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse"> <!-- li's disappear for mobile -->
+          <ul class="nav navbar-nav pull-right">
+            <li><a href="#">Plant Models</a></li>
+            <li><a href="#">Sensors</a></li>
+            <li><a href="#">Market Place</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>    
     
-    
+<!-- --------------------------------------- --->
+
+
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
+                <li> <!-- class="active"> disabled for now -->
+                    <a href="#/"><span class="fa-stack fa-lg pull-left"><i class="fa fa-calculator fa-stack-1x "></i></span>ETo Calculator</a>                       
+                </li> 
+                <li> <!-- class="active"> disabled for now -->
+                    <a href="#/dashboard"><span class="fa-stack fa-lg pull-left"><i class="fa fa-dashboard fa-stack-1x "></i></span>Dashboard</a>                       
+                </li>
+                <li>
+                    <a href="#/snapshot"><span class="fa-stack fa-lg pull-left"><i class="fa fa-bar-chart fa-stack-1x "></i></span>Daily Snapshot</a>
+                </li>
+                <li>
+                    <a href="#/irrigation"><span class="fa-stack fa-lg pull-left"><i class="fa fa-cloud-download fa-stack-1x "></i></span>Irrigation Planning</a>
+                </li>
+                <li>
+                    <a href="#/"> <span class="fa-stack fa-lg pull-left"><i class="fa fa-map fa-stack-1x "></i></span>Map</a>
+                </li>
+                <li>
+                    <a href="#/integration"><span class="fa-stack fa-lg pull-left"><i class="fa fa-youtube-play fa-stack-1x "></i></span>Integration Planning</a>
+                </li>
+                <li>
+                    <a href="#/services"><span class="fa-stack fa-lg pull-left"><i class="fa fa-cart-plus fa-stack-1x "></i></span>Services</a>
+                </li>
+                <li>
+                    <a href="#/settings"><span class="fa-stack fa-lg pull-left"><i class="fa fa-wrench fa-stack-1x "></i></span>Settings</a>
+                </li>                
+                <li>
+                    <a href="#/contact"><span class="fa-stack fa-lg pull-left"><i class="fa fa-server fa-stack-1x "></i></span>Contact</a>
+                </li>
+            </ul>
+        </div><!-- /#sidebar-wrapper -->
+
+
+
+        <div ng-view=""></div>
+
+
+    </div>
+    <!-- /#wrapper -->
+
+
+
+<!--    
     <div class="header">
       <div class="navbar navbar-default" role="navigation">
         <div class="container">
@@ -76,17 +136,20 @@
         </div>
       </div>
     </div>
+-->
 
-    <div class="container">
-    <div ng-view=""></div>
+
+<!--    <div class="container">
+    
     </div>
-
+-->
+<!--
     <div class="footer">
       <div class="container">
         <p>Waterbit.net</p>
       </div>
     </div>
-
+-->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -121,6 +184,14 @@
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/services/locationservice.js"></script>
+        <script src="scripts/controllers/dashboard.js"></script>
+        <script src="scripts/controllers/snapshot.js"></script>
+        <script src="scripts/controllers/irrigation.js"></script>
+        <script src="scripts/controllers/integration.js"></script>
+        <script src="scripts/controllers/settings.js"></script>
+        <script src="scripts/controllers/services.js"></script>
+        <script src="scripts/controllers/contact.js"></script>
+        <script src="scripts/controllers/calculator.js"></script>
         <!-- endbuild -->
 </body>
 </html>

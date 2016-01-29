@@ -3,11 +3,12 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div>
       <ul class="nav navbar-nav pull-left">
-        <li><a id="third-header-title" href="#">Dashboard</a></li>
+        <li><a id="third-header-title" href="#">Daily Snapshot</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
@@ -160,34 +161,3 @@
             </div>
         </div>
         <!-- /#page-content-wrapper -->
-
-
-<div class="container">
-
-  <h2 class="text-center">ETo calculator</h2>
-  
-  <h3>Enter a new block</h3>
-
-  <form role="form" ng-submit="addBlock()">
-    <div class="row">
-      <div class="input-group">
-        <input type="text" ng-model="input" placeholder="Enter LAT, LON" class="form-control">
-        <span class="input-group-btn">
-          <input type="submit" class="btn btn-primary" value="Add">
-        </span>
-      </div>
-    </div>
-  </form>
-
-  <h3>Saved blocks</h3>
-  <div ui-sortable ng-model="blocks">
-    <p class="input-group" ng-repeat="block in blocks" style="padding:5px 10px; cursor: move;">
-      <input type="text" ng-model="block.name" class="form-control">
-      <input type="text" ng-model="block.lat" class="form-control">
-      <input type="text" ng-model="block.lon" class="form-control">
-      <span class="input-group-btn">
-        <button class="btn btn-danger" ng-click="removeBlock($index)" aria-label="Remove">X</button>
-      </span>
-    </p>
-  </div>
-</div>

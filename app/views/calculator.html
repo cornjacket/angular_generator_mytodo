@@ -1,0 +1,84 @@
+<nav class="navbar navbar-default third-header">
+  <div class="container-fluid">
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div>
+      <ul class="nav navbar-nav pull-left">
+        <li><a id="third-header-title" href="#">ETo Calculator</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+    
+    <div class="well well-lg">
+        
+        <form class="form-inline">
+          <div class="form-group">
+            <label>Block Name: </label>
+            <input type="text" class="form-control" ng-model="block.name">
+          </div>        
+          <div class="form-group">
+            <label>Latitude: </label>
+            <input type="text" class="form-control" ng-model="block.lat">
+          </div>
+          <div class="form-group">
+            <label>Longitude: </label>
+            <input type="text" class="form-control" ng-model="block.lon">
+          </div>
+          <button ng-click="addBlock()" class="btn btn-default">Calculate</button>
+        </form>    
+        
+    </div>
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper" ng-if="blocks.length > 0">
+            <div class="container-fluid xyz">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                     <div class="table-responsive">
+                      <table class="table table-condensed table-hover">
+                          <thead>
+                            <tr>
+                              <th>Block Name</th>
+                              <th>Latitude</th>
+                              <th>Longitude</th>
+                              <th>1D RAW</th>
+                              <th>2D RAW</th>
+                              <th>3D RAW</th>
+                              <th>4D RAW</th> 
+                              <th>Adjustment</th>
+                              <th>1D ADJ</th>
+                              <th>2D ADJ</th>
+                              <th>3D ADJ</th>
+                              <th>4D ADJ</th>  
+                              <th>Delete</th>
+                            </tr>
+                          </thead>
+                          <tbody ui-sortable ng-model="blocks">
+                            <tr ng-repeat="block in blocks" style="cursor: move;">
+                              <td><input type="text" name="fname" value={{block.name}}/></td>
+                              <td>{{block.lat}}</td>
+                              <td>{{block.lon}}</td>
+                              <td>2.0"</td>
+                              <td>1.6"</td>
+                              <td>1.7"</td>
+                              <td>2.0"</td>
+                              <td><input type="text" name="fname" value="0.1" ng-model="block.adj"/></td> 
+                              <td>1.9"</td>
+                              <td>1.5"</td>  
+                              <td>1.6"</td>
+                              <td>1.9"</td>
+                              <td ng-click="removeBlock($index)" style="cursor: pointer;">X</td>
+                            </tr>                             
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+</div>
