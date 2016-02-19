@@ -59,6 +59,10 @@ body {
   margin-top: 28px;
 }
 
+.no-display {
+    display: none;
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
@@ -87,18 +91,18 @@ body {
 /* Layout Element Colors
 ==============================  */
 
-/*.main-header              { background-color: #384047; }*/
-.main-header              { background-color: black; }
-.third-header              { background-color: black; }
-.main-header              { margin: 0; }
-.second-header            { margin: 0; }
+.main-header                { background-color: rgb(89,89,91); }
+.second-header              { background-color: rgb(230,227,227); }
+.third-header               { background-color: rgb(173,172,172); }
+
+.main-header, .second-header { margin: 0; }
 
 /*********************************************************************************/
 /* http://seegatesite.com/create-simple-cool-sidebar-menu-with-bootstrap-3/
 http://startbootstrap.com/template-overviews/simple-sidebar/ */
 /*****************************************************************************/
 
- #wrapper {
+#wrapper {
     padding-left: 0;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -107,10 +111,7 @@ http://startbootstrap.com/template-overviews/simple-sidebar/ */
     overflow: hidden;
 }
  
-#wrapper.toggled {
-    padding-left: 250px;
-    overflow: scroll;
-}
+
  
 #sidebar-wrapper {
     z-index: 1000;
@@ -127,9 +128,7 @@ http://startbootstrap.com/template-overviews/simple-sidebar/ */
     transition: all 0.5s ease;
 }
 
-#wrapper.toggled #sidebar-wrapper {
-    width: 250px;
-}
+
  
 #page-content-wrapper {
     position: absolute;
@@ -140,10 +139,7 @@ http://startbootstrap.com/template-overviews/simple-sidebar/ */
 .xyz{
     min-width: 360px;
 }
-#wrapper.toggled #page-content-wrapper {
-    position: relative;
-    margin-right: 0px; 
-}
+
 .fixed-brand{
     width: auto;
 }
@@ -167,14 +163,14 @@ http://startbootstrap.com/template-overviews/simple-sidebar/ */
 .sidebar-nav li a {
     display: block;
     text-decoration: none;
-    color: #999999;
+    color: #ddd; /*#999999;*/
 }
  
 .sidebar-nav li a:hover {
     text-decoration: none;
     color: #fff;
-    background: rgba(255,255,255,0.2);
-    border-left: red 2px solid;
+    background: rgb(79,130,169); /*rgba(255,255,255,0.2);*/
+    /*border-left: white 2px solid;*/
 }
  
 .sidebar-nav li a:active,
@@ -197,6 +193,14 @@ http://startbootstrap.com/template-overviews/simple-sidebar/ */
     background: none;
 }
 
+#mobile-menu .nav > li > a {
+    color: white;
+}
+
+#mobile-menu .nav > li > a:hover {
+    color: white;
+}
+
 @media(min-width:768px) {
     #wrapper {
         padding-left: 250px;
@@ -204,25 +208,13 @@ http://startbootstrap.com/template-overviews/simple-sidebar/ */
     .fixed-brand{
         width: 250px;
     }
-    #wrapper.toggled {
-        padding-left: 0;
-    }
+
  
     #sidebar-wrapper {
         width: 250px;
     }
  
-    #wrapper.toggled #sidebar-wrapper {
-        width: 250px;
-    }
-    #wrapper.toggled-2 #sidebar-wrapper {
-        width: 50px;
-    }
-    #wrapper.toggled-2 #sidebar-wrapper:hover {
-        width: 250px;
-    }
- 
- 
+
     #page-content-wrapper {
         padding: 20px;
         position: relative;
@@ -233,22 +225,6 @@ http://startbootstrap.com/template-overviews/simple-sidebar/ */
     }
  
 
-    #wrapper.toggled #page-content-wrapper {
-        position: relative;
-        margin-right: 0;
-        padding-left: 250px;
-    }
-    #wrapper.toggled-2 #page-content-wrapper {
-        position: relative;
-        margin-right: 0;
-        margin-left: -200px;
-        -webkit-transition: all 0.5s ease;
-        -moz-transition: all 0.5s ease;
-        -o-transition: all 0.5s ease;
-        transition: all 0.5s ease;
-        width: auto;
- 
-    }
 }
 
 
@@ -256,31 +232,27 @@ http://startbootstrap.com/template-overviews/simple-sidebar/ */
     margin:0;
 }
 
+.show-mobile {
+    display: inline-block;
+}
+    
+.hide-mobile-tablet {
+    display: none;
+}
+    
 @media(min-width:768px) {
     #wrapper {
-        padding-left: 250px;
+        padding-left: 50px;
     }
     .fixed-brand{
-        width: 250px;
-    }
-    #wrapper.toggled {
-        padding-left: 0;
-    }
- 
-    #sidebar-wrapper {
-        width: 250px;
-    }
- 
-    #wrapper.toggled #sidebar-wrapper {
-        width: 250px;
-    }
-    #wrapper.toggled-2 #sidebar-wrapper {
         width: 50px;
     }
-    #wrapper.toggled-2 #sidebar-wrapper:hover {
-        width: 250px;
-    }
+
  
+    #sidebar-wrapper {
+        width: 50px;
+        background-color: rgb(89,89,91);
+    }
  
     #page-content-wrapper {
         padding: 20px;
@@ -291,24 +263,66 @@ http://startbootstrap.com/template-overviews/simple-sidebar/ */
         transition: all 0.5s ease;
     }
  
-
-    #wrapper.toggled #page-content-wrapper {
-        position: relative;
-        margin-right: 0;
-        padding-left: 250px;
+    .block-tablet {
+        display: block;
     }
-    #wrapper.toggled-2 #page-content-wrapper {
+ 
+    .hide-tablet {
+        display: none;
+    }
+    
+    .show-mobile {
+        display: none;
+    }
+    
+    .hide-mobile-tablet {
+        display: none;
+    }
+
+}
+
+
+@media(min-width:1024px) {
+    #wrapper {
+        padding-left: 225px;
+    }
+    .fixed-brand{
+        width: 225px;
+    }
+
+    #sidebar-wrapper {
+        width: 225px;
+        background-color: rgb(89,89,91);
+    }
+ 
+    #page-content-wrapper {
+        padding: 20px;
         position: relative;
-        margin-right: 0;
-        margin-left: -200px;
         -webkit-transition: all 0.5s ease;
         -moz-transition: all 0.5s ease;
         -o-transition: all 0.5s ease;
         transition: all 0.5s ease;
-        width: auto;
- 
     }
+ 
+    .block-tablet {
+        display: inline;
+    } 
+
+    .hide-tablet {
+        display: block;
+    }
+    
+    .show-mobile {
+        display: none;
+    }    
+    
+    .hide-mobile-tablet {
+        display: block;
+    }
+    
 }
+
+
 
 #third-header-title, #company-name, .nav-top { color: white; }
 .nav-top {
@@ -325,6 +339,16 @@ http://startbootstrap.com/template-overviews/simple-sidebar/ */
 
 #welcome, #welcome:hover {
     color: white;
+}
+
+/* Plant Models, Sensors, Market Place */
+.navbar-default .navbar-nav > li > a {
+    color: rgb(89,89,91);
+}
+
+/* Plant Models, Sensors, Market Place */
+.navbar-default .navbar-nav > li > a:hover {
+    color: black;
 }
 
 .table td, .table th {

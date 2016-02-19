@@ -24,11 +24,11 @@ angular
   }])  
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
+     /* .when('/', { // this should go to the dashboard for premium users and to ETo calculator for registered users
         templateUrl: 'views/calculator.html',
         controller: 'CalculatorCtrl',
         controllerAs: 'main'
-      })    
+      })*/    
       .when('/dashboard', {
         templateUrl: 'views/dashboard.html',
         controller: 'DashboardCtrl',
@@ -74,12 +74,12 @@ angular
         controller: 'MapCtrl',
         controllerAs: 'map'
       })
-      .when('/signup', {
-        templateUrl: 'views/signup.html',
-        controller: 'SignupCtrl',
-        controllerAs: 'signup'
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl',
+        controllerAs: 'login'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/login'
       });
   });
