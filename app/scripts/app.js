@@ -29,7 +29,7 @@ angular
         controller: 'CalculatorCtrl',
         controllerAs: 'main'
       })*/    
-      .when('/dashboard', {
+/*      .when('/dashboard', {
         templateUrl: 'views/dashboard.html',
         controller: 'DashboardCtrl',
         controllerAs: 'main'
@@ -63,17 +63,17 @@ angular
         templateUrl: 'views/contact.html',
         controller: 'ContactCtrl',
         controllerAs: 'contact'
-      })
+      })*/
       .when('/calculator', {
         templateUrl: 'views/calculator.html',
         controller: 'CalculatorCtrl',
         controllerAs: 'calculator'
       })
-      .when('/map', {
+/*      .when('/map', {
         templateUrl: 'views/map.html',
         controller: 'MapCtrl',
         controllerAs: 'map'
-      })
+      })*/
       .when('/login', {
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl',

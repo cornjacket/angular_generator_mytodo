@@ -309,7 +309,7 @@ http://startbootstrap.com/template-overviews/simple-sidebar/ */
     } 
 
     .hide-tablet {
-        display: block;
+        display: inline; /*block;*/
     }
     
     .show-mobile {
@@ -349,6 +349,14 @@ http://startbootstrap.com/template-overviews/simple-sidebar/ */
 /* Plant Models, Sensors, Market Place */
 .navbar-default .navbar-nav > li > a:hover {
     color: black;
+}
+
+#company-name {
+    margin-left: -2px;
+}
+
+.adj {
+    width: 40px;
 }
 
 .table td, .table th {

@@ -8,13 +8,16 @@
  * Controller of the mytodoApp
  */
 angular.module('mytodoApp')
-  .controller('CalculatorCtrl', function ($scope, localStorageService, locationService) {
+  .controller('CalculatorCtrl', function ($scope, $log, localStorageService, locationService, userService) {
+
+    $scope.loggedIn = userService.get() !== null;
     
     var blocksInStore = localStorageService.get('blocks');
 
     $scope.input = '';
 
     $scope.block = {
+      date:    '',
       name:    '',
       lat:     '',
       lon:     '',
@@ -62,12 +65,19 @@ angular.module('mytodoApp')
       if ($scope.block.name.length === 0) {
             $scope.block.name = 'Block' + ($scope.blocks.length+1);
       }
+      $scope.block.date = Date.now();
+      $scope.block.lat = '25.3221';
+      $scope.block.lon = '-123.5332';
+      $scope.block.prediction1 = 1.2;
+      $scope.block.prediction2 = 2.5;
+      $scope.block.prediction3 = 2.2;
+      $scope.block.prediction4 = 1.0;
       $scope.blocks.push($scope.block);
       $scope.block = {
             name:    '',
             lat:     '',
             lon:     '',
-            address: '',
+            zipcode: '',
             adj:     '0'
           };
           
@@ -79,5 +89,24 @@ angular.module('mytodoApp')
     
     
     console.log(locationService.someMethod());
+    
+    
+    $scope.totalItems = 64;
+    $scope.currentPage = 4;
+
+    $scope.setPage = function (pageNo) {
+      $scope.currentPage = pageNo;
+    };
+
+    $scope.pageChanged = function() {
+      $log.log('Page changed to: ' + $scope.currentPage);
+    };
+
+    $scope.maxSize = 5;
+    $scope.bigTotalItems = 175;
+    $scope.bigCurrentPage = 1;    
+    
+    
+    
     
   });  

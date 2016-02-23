@@ -20,6 +20,9 @@
     <link rel="stylesheet" href="styles/main.css"> 
     <!-- endbuild -->
     <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet"> <!-- DRT - is this the way to include -->
+    <link rel="icon" 
+      type="image/png" 
+      href="images/logo57X571.png">
   </head>
   <body ng-app="mytodoApp" ng-controller="MainCtrl">
     <!--[if lte IE 8]>
@@ -37,7 +40,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
+
+          <img class="pull-left" src="images/logo57X571.png" height="48" width="48"> 
           <a id="company-name" class="navbar-brand" href="#/">Waterbit</a>
+
         </div>
     
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -51,7 +57,7 @@
           </form>
           <div ng-show="loggedIn" class="ng-cloak">
              <ul class="nav navbar-nav navbar-right">
-              <li><a id="welcome">Welcome back, {{user.name}}!!</a></li>
+              <li><a id="welcome">Welcome back, {{user.name}}</a></li>
               <li><a id="logout" ng-click="logout()">Logout</a></li>
             </ul>
           </div>
@@ -60,13 +66,13 @@
             <ul class="nav navbar-nav navbar-right">
                 <li role="seperator" class="divider"></li>
                 <li ng-show="loggedIn"><a href="#/calculator">ETo Calculator</a></li> 
-                <li ng-show="loggedIn"><a href="#/dashboard">Dashboard</a></li>
+                <!--<li ng-show="loggedIn"><a href="#/dashboard">Dashboard</a></li>
                 <li ng-show="loggedIn"><a href="#/snapshot">Daily Snapshot</a></li>
                 <li ng-show="loggedIn"><a href="#/irrigation">Irrigation Planning</a></li>
                 <li ng-show="loggedIn"><a href="#/map">Map</a></li>
                 <li ng-show="loggedIn"><a href="#/integration">Integration Planning</a></li>
                 <li ng-show="loggedIn"><a href="#/services">Services</a></li>
-                <li ng-show="loggedIn"><a href="#/settings">Settings</a></li>
+                <li ng-show="loggedIn"><a href="#/settings">Settings</a></li>-->
             </ul>            
             
           </div>
