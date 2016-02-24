@@ -11,24 +11,65 @@ angular.module('mytodoApp')
   .controller('CalculatorCtrl', function ($scope, $log, localStorageService, locationService, userService) {
 
     $scope.loggedIn = userService.get() !== null;
+
+    $scope.viewState = 0; // 0 = Manage Locations, 1 = Daily Prediction, 2 = Prediction History
     
-    var blocksInStore = localStorageService.get('blocks');
+    var blocksInStore    = localStorageService.get('blocks');
+    var locationsInStore = localStorageService.get('locations');
 
     $scope.input = '';
+
+    $scope.location = {
+      name:    '',
+      lat:     '',
+      lon:     '',
+      altitude: 0,
+      address: '', // needed?
+      adj:     0
+    };
 
     $scope.block = {
       date:    '',
       name:    '',
+      label:   '',
       lat:     '',
       lon:     '',
       address: '',
-      adj:     '0'
+      adj:     0 // this previously was '0', maybe that was the problem
     };
-    $scope.blocks = blocksInStore || [];
+    
+    $scope.locations = locationsInStore || [];
+    $scope.blocks    = blocksInStore || [];
+
+    $scope.$watch('locations', function () {
+      localStorageService.set('locations', $scope.locations);
+    }, true);    
 
     $scope.$watch('blocks', function () {
       localStorageService.set('blocks', $scope.blocks);
     }, true);
+    
+    $scope.addLocation = function () {
+      console.log($scope.location);
+      if ($scope.location.name.length === 0) {
+            $scope.location.name = 'Location' + ($scope.locations.length+1);
+      }
+      $scope.location.label = "AA" + ($scope.locations.length+1); // This will change later
+      $scope.location.lat = '25.3221';
+      $scope.location.lon = '-123.5332';
+      $scope.location.altitude = 8.0;
+      $scope.locations.push($scope.location);
+      $scope.location = {
+            name:    '',
+            label:   '',
+            lat:     '',
+            lon:     '',
+            altitude: 0,
+            zipcode: '',
+            adj:     0
+          };
+          
+    };    
     
     
     $scope.addBlock = function () {
@@ -83,8 +124,8 @@ angular.module('mytodoApp')
           
     };
     
-    $scope.removeBlock = function (index) {
-      $scope.blocks.splice(index, 1);
+    $scope.removeLocation = function (index) {
+      $scope.locations.splice(index, 1);
     };
     
     

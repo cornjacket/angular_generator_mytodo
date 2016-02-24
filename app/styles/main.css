@@ -363,3 +363,18 @@ http://startbootstrap.com/template-overviews/simple-sidebar/ */
    text-align: center;   
 }
 
+
+/* Manage Locations, Daily Prediction, Prediction History */
+.navbar-default .navbar-nav > li > .active_menu_item,
+.navbar-default .navbar-nav > li > .active_menu_item:hover {
+    color: black;
+}
+
+#search_box {
+    width: 400px;
+}
+
+/* this does nothing
+#search_button {
+    margin-left: 0;
+}*/

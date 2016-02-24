@@ -30,7 +30,7 @@ angular.module('mytodoApp')
       $scope.user.name = userService.get();
       $scope.loggedIn = userService.get() !== null;
       if ($scope.loggedIn) {
-        $location.path('/calculator');
+        $location.path('/eto_tracker');
       }
     };
  

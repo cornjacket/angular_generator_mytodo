@@ -64,7 +64,7 @@ angular
         controller: 'ContactCtrl',
         controllerAs: 'contact'
       })*/
-      .when('/calculator', {
+      .when('/eto_tracker', {
         templateUrl: 'views/calculator.html',
         controller: 'CalculatorCtrl',
         controllerAs: 'calculator'
