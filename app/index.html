@@ -103,7 +103,7 @@
         <div id="sidebar-wrapper" ng-class="{ 'no-display': !loggedIn}" >
             <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
                 <li ng-show="loggedIn" class="ng-cloak"> <!-- class="active"> disabled for now -->
-                    <a href="#/eto_tracker"><span class="fa-stack fa-lg"><i class="fa fa-calculator fa-stack-1x block-tablet"></i></span><span class="hide-tablet">ETo Tracker</span></a>                       
+                    <a href="#/eto_tracker"><span class="fa-stack fa-lg"><i class="fa fa-calculator fa-stack-1x block-tablet"></i></span><span class="hide-tablet side-navbar-text">ETo Tracker</span></a>                       
                 </li> 
                 <!--<li ng-show="loggedIn" class="ng-cloak"> <!-- class="active"> disabled for now -->
                 <!--    <a href="#/dashboard"><span class="fa-stack fa-lg"><i class="fa fa-dashboard fa-stack-1x "></i></span><span class="hide-tablet">Dashboard</span></a>                       
@@ -131,10 +131,7 @@
         </div><!-- /#sidebar-wrapper -->
 
 
-  	<!--<div ng-controller='MainController'>-->
-   <!--   <div class='map' ui-map='MyMap' ui-options='mapOptions' ui-event='{ "map-click": "addMarker($event, $params)"}'>-->
-  	<!--  </div>-->
-   <!-- </div>-->
+
     
         <div ng-view=""></div>
 

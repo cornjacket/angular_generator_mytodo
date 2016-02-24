@@ -24,117 +24,116 @@
         <div class="xyz"> <!-- container-fluid -->
             <div class="row">
   
-
-                  <div ng-switch="viewState">
-                      <div ng-switch-when="0"> <!-- Manage Locations -->
-                      
-                        <div ng-show="locations.length != 0" class="pull-left">
-                            <form ng-submit="addLocation()" class="form-inline">
-                              <div class="form-group">
-                                <input id="search_box" type="text" class="form-control" placeholder="Enter address or zipcode or lat,lon to get started" ng-model="location.name">
-                              </div>
-                              <button ng-click="addLocation()" type="button" class="btn btn-default">
-                                <span id="search_button" class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                              </button>
-                            </form>    
-                        </div>                      
-                        <div ng-hide="locations.length != 0" class="col-sm-offset-2 col-sm-6 col-lg-offset-3 col-lg-6">
-                            <form ng-submit="addLocation()" class="form-inline">
-                              <div class="form-group">
-                                <input id="search_box" type="text" class="form-control" placeholder="Enter address or zipcode or lat,lon to get started" ng-model="location.name">
-                              </div>
-                              <button ng-click="addLocation()" type="button" class="btn btn-default">
-                                <span id="search_button" class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                              </button>
-                            </form>    
+                <div ng-show="viewState == 0"> <!-- Manage Locations -->
+                
+                  <div ng-show="locations.length != 0" class="pull-left">
+                      <form ng-submit="addLocation()" class="form-inline">
+                        <div class="form-group">
+                          <input id="search_box" type="text" class="form-control" placeholder="Enter address or zipcode or lat,lon to get started" ng-model="location.name">
                         </div>
-
-                        <div class='map' ui-map='MyMap' ui-options='mapOptions' ui-event='{ "map-click": "addMarker($event, $params)"}'>
-  	                    </div>   
-                        
-                        <div class="col-lg-12" ng-if="locations.length > 0">
-                          <br />
-                          <h2 class="text-center">Locations</h2>
-                          <div class="table-responsive">
-                              <table class="table table-condensed table-hover">
-                                  <thead>
-                                    <tr>
-                                      <th>Name</th> <!--Block Name-->
-                                      <th>Block Label</th>
-                                      <th>Latitude</th>
-                                      <th>Longitude</th>
-                                      <th>Altitude</th>
-                                      <th>Offset</th>
-                                      <th>Delete</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody ui-sortable ng-model="locations">
-                                    <tr ng-repeat="location in locations" style="cursor: move;">
-                                      <!--<td><input type="text" name="fname" value={{block.name}}/></td>-->
-                                      <td>{{location.name}}</td>
-                                      <td>{{location.label}}</td>
-                                      <td>{{location.lat}}</td>
-                                      <td>{{location.lon}}</td>
-                                      <td>{{location.altitude}}</td>
-                                      <td><input class="adj text-center" type="text" name="fname" value="0.1" ng-model="location.adj"/></td> 
-                                      <td ng-click="removeLocation($index)" style="cursor: pointer;">X</td>
-                                    </tr>                             
-                                  </tbody>
-                                </table>
-                              </div>
-                        </div>                        
-                        
-
-                      </div> <!-- when="0" -->
-                      <div ng-switch-when="1"> <!-- Daily Predictions -->
-                        <div class="col-lg-12">
-                          <h5>Not Simple</h5>
+                        <button ng-click="addLocation()" type="button" class="btn btn-default">
+                          <span id="search_button" class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+                      </form>    
+                  </div>                      
+                  <div ng-hide="locations.length != 0" class="col-sm-offset-2 col-sm-6 col-lg-offset-3 col-lg-6">
+                      <form ng-submit="addLocation()" class="form-inline">
+                        <div class="form-group">
+                          <input id="search_box" type="text" class="form-control" placeholder="Enter address or zipcode or lat,lon to get started" ng-model="location.name">
                         </div>
-                      </div> <!-- when="1" -->
-                      <div ng-switch-when="2"> <!-- Prediction History -->
-                        <div class="col-lg-12">
-                          <div class="table-responsive" ng-if="blocks.length > 0">
-                              <table class="table table-condensed table-hover">
-                                  <thead>
-                                    <tr>
-                                      <th>Date</th>
-                                      <th>Zipcode</th> <!--Block Name-->
-                                      <th>Latitude</th>
-                                      <th>Longitude</th>
-                                      <th>1D RAW</th>
-                                      <th>2D RAW</th>
-                                      <th>3D RAW</th>
-                                      <th>4D RAW</th> 
-                                      <th>Offset</th>
-                                      <th>1D ADJ</th>
-                                      <th>2D ADJ</th>
-                                      <th>3D ADJ</th>
-                                      <th>4D ADJ</th>  
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr ng-repeat="block in blocks">
-                                      <!--<td><input type="text" name="fname" value={{block.name}}/></td>-->
-                                      <td>{{block.date | date:'shortDate'}}</td>
-                                      <td>{{block.zipcode}}</td>
-                                      <td>{{block.lat}}</td>
-                                      <td>{{block.lon}}</td>
-                                      <td>{{block.prediction1}}"</td>
-                                      <td>{{block.prediction2}}"</td>
-                                      <td>{{block.prediction3}}"</td>
-                                      <td>{{block.prediction4}}"</td>
-                                      <td><input class="adj text-center" type="text" name="fname" value="0.1" ng-model="block.adj"/></td> 
-                                      <td>{{block.prediction1 + block.adj}}"</td>
-                                      <td>{{block.prediction2 + block.adj}}"</td>  
-                                      <td>{{block.prediction3 + block.adj}}"</td>
-                                      <td>{{block.prediction4 + block.adj}}"</td>
-                                    </tr>                             
-                                  </tbody>
-                                </table>
-                              </div>
+                        <button ng-click="addLocation()" type="button" class="btn btn-default">
+                          <span id="search_button" class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+                      </form>    
+                  </div>
+
+<div class="col-lg-10">
+                  <div class='map' ui-map='MyMap' ui-options='mapOptions' ui-event='{ "map-click": "addMarker($event, $params)"}'>
+                  </div>
+</div>                  
+                 
+                  <div class="col-lg-12" ng-if="locations.length > 0">
+                    <br />
+                    <h2 class="text-center">Locations</h2>
+                    <div class="table-responsive">
+                        <table class="table table-condensed table-hover">
+                            <thead>
+                              <tr>
+                                <th>Name</th> <!--Block Name-->
+                                <th>Block Label</th>
+                                <th>Latitude</th>
+                                <th>Longitude</th>
+                                <th>Altitude</th>
+                                <th>Offset</th>
+                                <th>Delete</th>
+                              </tr>
+                            </thead>
+                            <tbody ui-sortable ng-model="locations">
+                              <tr ng-repeat="location in locations" style="cursor: move;">
+                                <!--<td><input type="text" name="fname" value={{block.name}}/></td>-->
+                                <td>{{location.name}}</td>
+                                <td>{{location.label}}</td>
+                                <td>{{location.lat}}</td>
+                                <td>{{location.lon}}</td>
+                                <td>{{location.altitude}}</td>
+                                <td><input class="adj text-center" type="text" name="fname" value="0.1" ng-model="location.adj"/></td> 
+                                <td ng-click="removeLocation($index)" style="cursor: pointer;">X</td>
+                              </tr>                             
+                            </tbody>
+                          </table>
                         </div>
-                      </div> <!-- when="2" -->        
-                  </div>      
+                  </div>                        
+                  
+
+                </div> <!-- when="0" -->
+                <div ng-show="viewState == 1"> <!-- Daily Predictions -->
+                  <div class="col-lg-12">
+                    <h5>Not Simple</h5>
+                  </div>
+                </div> <!-- when="1" -->
+                <div ng-show="viewState == 2"> <!-- Prediction History -->
+                  <div class="col-lg-12">
+                    <div class="table-responsive" ng-if="blocks.length > 0">
+                        <table class="table table-condensed table-hover">
+                            <thead>
+                              <tr>
+                                <th>Date</th>
+                                <th>Zipcode</th> <!--Block Name-->
+                                <th>Latitude</th>
+                                <th>Longitude</th>
+                                <th>1D RAW</th>
+                                <th>2D RAW</th>
+                                <th>3D RAW</th>
+                                <th>4D RAW</th> 
+                                <th>Offset</th>
+                                <th>1D ADJ</th>
+                                <th>2D ADJ</th>
+                                <th>3D ADJ</th>
+                                <th>4D ADJ</th>  
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat="block in blocks">
+                                <!--<td><input type="text" name="fname" value={{block.name}}/></td>-->
+                                <td>{{block.date | date:'shortDate'}}</td>
+                                <td>{{block.zipcode}}</td>
+                                <td>{{block.lat}}</td>
+                                <td>{{block.lon}}</td>
+                                <td>{{block.prediction1}}"</td>
+                                <td>{{block.prediction2}}"</td>
+                                <td>{{block.prediction3}}"</td>
+                                <td>{{block.prediction4}}"</td>
+                                <td><input class="adj text-center" type="text" name="fname" value="0.1" ng-model="block.adj"/></td> 
+                                <td>{{block.prediction1 + block.adj}}"</td>
+                                <td>{{block.prediction2 + block.adj}}"</td>  
+                                <td>{{block.prediction3 + block.adj}}"</td>
+                                <td>{{block.prediction4 + block.adj}}"</td>
+                              </tr>                             
+                            </tbody>
+                          </table>
+                        </div>
+                  </div>
+                </div> <!-- when="2" -->        
                     
             </div>
         </div>
