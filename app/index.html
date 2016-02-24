@@ -24,7 +24,7 @@
       type="image/png" 
       href="images/logo57X571.png">
   </head>
-  <body ng-app="mytodoApp" ng-controller="MainCtrl">
+  <body ng-controller="MainCtrl">  <!-- manually loading ng-app ng-app="mytodoApp" -->
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -131,7 +131,11 @@
         </div><!-- /#sidebar-wrapper -->
 
 
-
+  	<!--<div ng-controller='MainController'>-->
+   <!--   <div class='map' ui-map='MyMap' ui-options='mapOptions' ui-event='{ "map-click": "addMarker($event, $params)"}'>-->
+  	<!--  </div>-->
+   <!-- </div>-->
+    
         <div ng-view=""></div>
 
 
@@ -195,20 +199,30 @@
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-touch/angular-touch.js"></script>
-    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
-    <script src="bower_components/angular-ui-sortable/sortable.js"></script>
-    <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src='bower_components/jquery/dist/jquery.js'></script>
+    <script src='bower_components/angular/angular.js'></script>
+    <script src='bower_components/bootstrap/dist/js/bootstrap.js'></script>
+    <script src='bower_components/angular-animate/angular-animate.js'></script>
+    <script src='bower_components/angular-cookies/angular-cookies.js'></script>
+    <script src='bower_components/angular-resource/angular-resource.js'></script>
+    <script src='bower_components/angular-route/angular-route.js'></script>
+    <script src='bower_components/angular-sanitize/angular-sanitize.js'></script>
+    <script src='bower_components/angular-touch/angular-touch.js'></script>
+    <script src='bower_components/jquery-ui/jquery-ui.js'></script>
+    <script src='bower_components/angular-ui-sortable/sortable.js'></script>
+    <script src='bower_components/angular-local-storage/dist/angular-local-storage.js'></script>
+    <script src='bower_components/angular-ui-event/dist/event.js'></script>
+    <script src='bower_components/angular-ui-scroll/dist/ui-scroll.js'></script>
+    <script src='bower_components/angular-ui-scrollpoint/dist/scrollpoint.js'></script>
+    <script src='bower_components/angular-ui-mask/dist/mask.js'></script>
+    <script src='bower_components/angular-ui-validate/dist/validate.js'></script>
+    <script src='bower_components/angular-ui-indeterminate/dist/indeterminate.js'></script>
+    <script src='bower_components/angular-ui-uploader/dist/uploader.js'></script>
     <!-- endbower -->
     <!-- endbuild -->
+
+    <script src='bower_components/angular-ui-map/ui-map.js'></script> <!-- why doesnt bower add this in by itself -->
+    <script src='bower_components/angular-ui-utils/index.js'></script>
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
@@ -225,5 +239,9 @@
         <script src="scripts/controllers/login.js"></script>
         <script src="scripts/services/userservice.js"></script>
         <!-- endbuild -->
+        
+        
+    <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&callback=onGoogleReady'></script>    
+        
 </body>
 </html>

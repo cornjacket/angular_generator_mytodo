@@ -10,6 +10,20 @@
 angular.module('mytodoApp')
   .controller('CalculatorCtrl', function ($scope, $log, localStorageService, locationService, userService) {
 
+    $scope.mapOptions = {
+      center: new google.maps.LatLng(25.197139, 55.274111),
+      zoom: 15
+    };
+    
+    $scope.addMarker = function(event, params) {
+      console.log("addMarker() invoked.")
+      new google.maps.Marker({
+        map: $scope.MyMap,
+        position: params[0].latLng
+      });
+    };
+
+
     $scope.loggedIn = userService.get() !== null;
 
     $scope.viewState = 0; // 0 = Manage Locations, 1 = Daily Prediction, 2 = Prediction History

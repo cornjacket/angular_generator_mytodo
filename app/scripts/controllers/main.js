@@ -10,6 +10,7 @@
 angular.module('mytodoApp')
   .controller('MainCtrl', function ($scope, localStorageService, $location, userService) {
     
+    
     // NOT SURE WHAT TO DO WITH THIS, IF THIS IS NEEDED. I WANT AN EASY WAY TO LOGIN FOR THE USER.
     
     var previousUser = localStorageService.get('previousUser');

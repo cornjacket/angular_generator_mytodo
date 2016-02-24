@@ -1,5 +1,15 @@
 'use strict';
 
+
+function onGoogleReady () {
+	angular.bootstrap(document.getElementsByTagName('body')[0], ['mytodoApp']);
+	console.log("onGoogleReady() called");
+}
+
+
+
+
+
 /**
  * @ngdoc overview
  * @name mytodoApp
@@ -17,7 +27,9 @@ angular
     'ngSanitize',
     'ngTouch',
     'ui.sortable',
-    'LocalStorageModule'
+    'LocalStorageModule',
+    'ui.map',
+    'ui.event'
   ])
   .config(['localStorageServiceProvider', function(localStorageServiceProvider){
     localStorageServiceProvider.setPrefix('ls');
@@ -83,3 +95,22 @@ angular
         redirectTo: '/login'
       });
   });
+
+
+/*
+angular.module('mytodoApp')
+  .controller('MainController', function($scope) {
+
+    $scope.mapOptions = {
+      center: new google.maps.LatLng(25.197139, 55.274111),
+      zoom: 15
+    };
+    
+    $scope.addMarker = function(event, params) {
+      new google.maps.Marker({
+        map: $scope.MyMap,
+        position: params[0].latLng
+      });
+    };
+
+  });*/

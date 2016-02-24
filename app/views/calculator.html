@@ -24,7 +24,7 @@
         <div class="xyz"> <!-- container-fluid -->
             <div class="row">
   
-      
+
                   <div ng-switch="viewState">
                       <div ng-switch-when="0"> <!-- Manage Locations -->
                       
@@ -48,7 +48,9 @@
                               </button>
                             </form>    
                         </div>
-                        
+
+                        <div class='map' ui-map='MyMap' ui-options='mapOptions' ui-event='{ "map-click": "addMarker($event, $params)"}'>
+  	                    </div>   
                         
                         <div class="col-lg-12" ng-if="locations.length > 0">
                           <br />
