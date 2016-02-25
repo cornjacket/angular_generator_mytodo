@@ -27,34 +27,34 @@
                 <div ng-show="viewState == 0"> <!-- Manage Locations -->
                 
                   <div ng-show="locations.length != 0" class="pull-left">
-                      <form ng-submit="addLocation()" class="form-inline">
+                      <form ng-submit="findLocation()" class="form-inline">
                         <div class="form-group">
                           <input id="search_box" type="text" class="form-control" placeholder="Enter address or zipcode or lat,lon to get started" ng-model="location.name">
                         </div>
-                        <button ng-click="addLocation()" type="button" class="btn btn-default">
+                        <button ng-click="findLocation()" type="button" class="btn btn-default">
                           <span id="search_button" class="glyphicon glyphicon-search" aria-hidden="true"></span>
                         </button>
                       </form>    
                   </div>                      
                   <div ng-hide="locations.length != 0" class="col-sm-offset-2 col-sm-6 col-lg-offset-3 col-lg-6">
-                      <form ng-submit="addLocation()" class="form-inline">
+                      <form ng-submit="findLocation()" class="form-inline">
                         <div class="form-group">
                           <input id="search_box" type="text" class="form-control" placeholder="Enter address or zipcode or lat,lon to get started" ng-model="location.name">
                         </div>
-                        <button ng-click="addLocation()" type="button" class="btn btn-default">
+                        <button ng-click="findLocation()" type="button" class="btn btn-default">  <!-- addLocation() -->
                           <span id="search_button" class="glyphicon glyphicon-search" aria-hidden="true"></span>
                         </button>
                       </form>    
                   </div>
 
-<div class="col-lg-10">
-                  <div class='map' ui-map='MyMap' ui-options='mapOptions' ui-event='{ "map-click": "addMarker($event, $params)"}'>
+                <div class="row">
+                  <div id='map_canvas' class='map col-lg-8' ui-map='MyMap' ui-options='mapOptions' ui-event='{ "map-click": "addMarker($event, $params)"}'>
                   </div>
-</div>                  
+                </div>
                  
                   <div class="col-lg-12" ng-if="locations.length > 0">
                     <br />
-                    <h2 class="text-center">Locations</h2>
+                    <h2 class="text-center">Tracked Locations</h2>
                     <div class="table-responsive">
                         <table class="table table-condensed table-hover">
                             <thead>

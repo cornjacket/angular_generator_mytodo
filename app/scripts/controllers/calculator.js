@@ -16,7 +16,7 @@ angular.module('mytodoApp')
     };
     
     $scope.addMarker = function(event, params) {
-      console.log("addMarker() invoked.")
+      console.log("addMarker() invoked.");
       new google.maps.Marker({
         map: $scope.MyMap,
         position: params[0].latLng
@@ -62,9 +62,41 @@ angular.module('mytodoApp')
     $scope.$watch('blocks', function () {
       localStorageService.set('blocks', $scope.blocks);
     }, true);
+
+
+    $scope.findLocation = function () {
+      console.log("findLocation() invoked");
+      
+/*      
+      
+      if ($scope.location.name.length === 0) {
+            $scope.location.name = 'Location' + ($scope.locations.length+1);
+      }
+      $scope.location.label = "AA" + ($scope.locations.length+1); // This will change later
+      $scope.location.lat = '25.3221';
+      $scope.location.lon = '-123.5332';
+      $scope.location.altitude = 8.0;
+      $scope.locations.push($scope.location);
+      $scope.location = {
+            name:    '',
+            label:   '',
+            lat:     '',
+            lon:     '',
+            altitude: 0,
+            zipcode: '',
+            adj:     0
+          };
+*/
+      // instead of using an object, define each param of the existing object because the objec is being watched.
+      console.log($scope.mapOptions)
+      $scope.mapOptions.center = new google.maps.LatLng(45.197139, -143.274111);
+      $scope.mapOptions.zoom = 10;
+          
+          
+    };
     
     $scope.addLocation = function () {
-      console.log($scope.location);
+      console.log("addLocation invoked");
       if ($scope.location.name.length === 0) {
             $scope.location.name = 'Location' + ($scope.locations.length+1);
       }
