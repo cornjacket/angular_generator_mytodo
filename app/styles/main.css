@@ -1,3 +1,5 @@
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -379,8 +381,8 @@ http://startbootstrap.com/template-overviews/simple-sidebar/ */
     margin-left: 0;
 }*/
 
-/*.map {position: absolute; top: 0; right: 0; bottom: 0; left: 0; width: 100%; }*/
-.map { height: 400px; width: 100%; margin-top: 10px; margin-bottom: 10px; }
+.map {position: relative; height:400px; top: 0; right: 0; bottom: 0; left: 0; width: 100%; }
+/*.map { height: 400px; width: 50%; margin-top: 10px; margin-bottom: 10px; }*/
 
 /*.side-navbar-icon { padding-left: 0; } this doesnt work on glyphicon */
 .side-navbar-text { padding-left: 20px; }

@@ -1,21 +1,18 @@
 <div ng-show="loggedIn">
   
 
-  <nav class="navbar navbar-default third-header">
-    <div class="container-fluid">
+  <!--<nav class="navbar navbar-default third-header">-->
+  <!--  <div class="container-fluid">-->
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div>
-        <!--<ul class="nav navbar-nav pull-left">
-          <li><a id="third-header-title">ETo Tracker</a></li>
-        </ul> MAYBE ONLY SHOW IN TABLET OR MOBILE VIEW -->
-        <ul class="nav navbar-nav pull-left">
-          <li><a ng-class="{ 'active_menu_item': viewState==0 }" ng-click="viewState = 0">Manage Locations</a></li>
-          <li><a ng-class="{ 'active_menu_item': viewState==1 }" ng-click="viewState = 1">Daily Prediction</a></li>
-          <li><a ng-class="{ 'active_menu_item': viewState==2 }" ng-click="viewState = 2">Prediction History</a></li>
-        </ul>        
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
+  <!--    <div>-->
+  <!--      <ul class="nav navbar-nav pull-left">-->
+  <!--        <li><a>Manage Locations</a></li>-->
+  <!--        <li><a>Daily Prediction</a></li>-->
+  <!--        <li><a>Prediction History</a></li>-->
+  <!--      </ul>        -->
+  <!--    </div><!-- /.navbar-collapse -->-->
+  <!--  </div><!-- /.container-fluid -->-->
+  <!--</nav>-->
   
   <div class="container">
 
@@ -24,8 +21,6 @@
         <div class="xyz"> <!-- container-fluid -->
             <div class="row">
   
-                <div ng-show="viewState == 0"> <!-- Manage Locations -->
-                
                   <div ng-show="locations.length != 0" class="pull-left">
                       <form ng-submit="findLocation()" class="form-inline">
                         <div class="form-group">
@@ -47,51 +42,38 @@
                       </form>    
                   </div>
 
-                <div class="row">
-                  <div id='map_canvas' class='map col-lg-8' ui-map='MyMap' ui-options='mapOptions' ui-event='{ "map-click": "addMarker($event, $params)"}'>
+                <div class="row well">
+                  <div id='map_canvas' class='map col-lg-8 pull-left' ui-map='MyMap' ui-options='mapOptions' ui-event='{ "map-click": "addMarker($event, $params)"}'>
                   </div>
                 </div>
                  
-                  <div class="col-lg-12" ng-if="locations.length > 0">
-                    <br />
-                    <h2 class="text-center">Tracked Locations</h2>
-                    <div class="table-responsive">
-                        <table class="table table-condensed table-hover">
-                            <thead>
-                              <tr>
-                                <th>Name</th> <!--Block Name-->
-                                <th>Block Label</th>
-                                <th>Latitude</th>
-                                <th>Longitude</th>
-                                <th>Altitude</th>
-                                <th>Offset</th>
-                                <th>Delete</th>
-                              </tr>
-                            </thead>
-                            <tbody ui-sortable ng-model="locations">
-                              <tr ng-repeat="location in locations" style="cursor: move;">
-                                <!--<td><input type="text" name="fname" value={{block.name}}/></td>-->
-                                <td>{{location.name}}</td>
-                                <td>{{location.label}}</td>
-                                <td>{{location.lat}}</td>
-                                <td>{{location.lon}}</td>
-                                <td>{{location.altitude}}</td>
-                                <td><input class="adj text-center" type="text" name="fname" value="0.1" ng-model="location.adj"/></td> 
-                                <td ng-click="removeLocation($index)" style="cursor: pointer;">X</td>
-                              </tr>                             
-                            </tbody>
-                          </table>
-                        </div>
-                  </div>                        
-                  
-
-                </div> <!-- when="0" -->
-                <div ng-show="viewState == 1"> <!-- Daily Predictions -->
+                
                   <div class="col-lg-12">
                     <h5>Not Simple</h5>
                   </div>
-                </div> <!-- when="1" -->
-                <div ng-show="viewState == 2"> <!-- Prediction History -->
+                
+               
+                  <div class="col-lg-offset-8 col-lg-4">
+                    <nav>
+                      <ul class="pagination">
+                        <li>
+                          <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                          </a>
+                        </li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li>
+                          <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </nav> 
+                  </div>
                   <div class="col-lg-12">
                     <div class="table-responsive" ng-if="blocks.length > 0">
                         <table class="table table-condensed table-hover">
@@ -131,10 +113,67 @@
                               </tr>                             
                             </tbody>
                           </table>
-                        </div>
+                    </div>
                   </div>
-                </div> <!-- when="2" -->        
-                    
+                  
+                  <h4>DRT {{numPages}}</h4>
+                  
+    <h4>Default</h4>
+    <uib-pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></uib-pagination>
+    <uib-pagination boundary-links="true" total-items="totalItems" ng-model="currentPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+    <uib-pagination direction-links="false" boundary-links="true" total-items="totalItems" ng-model="currentPage"></uib-pagination>
+    <uib-pagination direction-links="false" total-items="totalItems" ng-model="currentPage" num-pages="smallnumPages"></uib-pagination>
+    <pre>The selected page no: {{currentPage}}</pre>
+    <button type="button" class="btn btn-info" ng-click="setPage(3)">Set current page to: 3</button>
+
+    <hr />
+    <h4>Limit the maximum visible buttons</h4>
+    <h6><code>rotate</code> defaulted to <code>true</code>:</h6>
+    <uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" num-pages="numPages"></uib-pagination>
+    <h6><code>rotate</code> defaulted to <code>true</code> and <code>force-ellipses</code> set to <code>true</code>:</h6>
+    <uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" force-ellipses="true"></uib-pagination>
+    <h6><code>rotate</code> set to <code>false</code>:</h6>
+    <uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false"></uib-pagination>
+    <h6><code>boundary-link-numbers</code> set to <code>true</code> and <code>rotate</code> defaulted to <code>true</code>:</h6>
+    <uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-link-numbers="true"></uib-pagination>
+    <h6><code>boundary-link-numbers</code> set to <code>true</code> and <code>rotate</code> set to <code>false</code>:</h6>
+    <uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-link-numbers="true" rotate="false"></uib-pagination>
+    <pre>Page: {{bigCurrentPage}} / {{numPages}}</pre>        
+                  
+                  
+                  <div class="col-lg-12 well" ng-if="locations.length > 0">
+                    <br />
+                    <h2 class="text-center">Tracked Locations</h2>
+                    <div class="table-responsive">
+                        <table class="table table-condensed table-hover">
+                            <thead>
+                              <tr>
+                                <th>Name</th> <!--Block Name-->
+                                <th>Block Label</th>
+                                <th>Latitude</th>
+                                <th>Longitude</th>
+                                <th>Altitude</th>
+                                <th>Offset</th>
+                                <th>Delete</th>
+                              </tr>
+                            </thead>
+                            <tbody ui-sortable ng-model="locations">
+                              <tr ng-repeat="location in locations" style="cursor: move;">
+                                <!--<td><input type="text" name="fname" value={{block.name}}/></td>-->
+                                <td>{{location.name}}</td>
+                                <td>{{location.label}}</td>
+                                <td>{{location.lat}}</td>
+                                <td>{{location.lon}}</td>
+                                <td>{{location.altitude}}</td>
+                                <td><input class="adj text-center" type="text" name="fname" value="0.1" ng-model="location.adj"/></td> 
+                                <td ng-click="removeLocation($index)" style="cursor: pointer;">X</td>
+                              </tr>                             
+                            </tbody>
+                          </table>
+                    </div>
+                  </div>                  
+                  
+                  
             </div>
         </div>
    

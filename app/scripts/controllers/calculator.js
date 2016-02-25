@@ -11,8 +11,8 @@ angular.module('mytodoApp')
   .controller('CalculatorCtrl', function ($scope, $log, localStorageService, locationService, userService) {
 
     $scope.mapOptions = {
-      center: new google.maps.LatLng(25.197139, 55.274111),
-      zoom: 15
+      center: new google.maps.LatLng(36.959220, -120.000000),
+      zoom: 12
     };
     
     $scope.addMarker = function(event, params) {
@@ -88,9 +88,11 @@ angular.module('mytodoApp')
           };
 */
       // instead of using an object, define each param of the existing object because the objec is being watched.
-      console.log($scope.mapOptions)
-      $scope.mapOptions.center = new google.maps.LatLng(45.197139, -143.274111);
-      $scope.mapOptions.zoom = 10;
+      console.log($scope.mapOptions);
+      //$scope.mapOptions.center = new google.maps.LatLng(45.197139, -143.274111);
+     
+      // not sure 
+     // $scope.mapOptions.zoom = 100;
           
           
     };
@@ -193,7 +195,7 @@ angular.module('mytodoApp')
     $scope.bigTotalItems = 175;
     $scope.bigCurrentPage = 1;    
     
-    
+    console.log($scope.mapOptions);
     
     
   });  
