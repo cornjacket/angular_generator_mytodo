@@ -29,14 +29,16 @@ angular
     'ui.sortable',
     'LocalStorageModule',
     'ui.map',
-    'ui.event'
+    'ui.event',
+    'ui.bootstrap',
+    'chart.js'
   ])
   .config(['localStorageServiceProvider', function(localStorageServiceProvider){
     localStorageServiceProvider.setPrefix('ls');
   }])  
   .config(function ($routeProvider) {
     $routeProvider
-     /* .when('/', { // this should go to the dashboard for premium users and to ETo calculator for registered users
+     /* .when('/', { // this should go to the dashboard for premium users and to ETc calculator for registered users
         templateUrl: 'views/calculator.html',
         controller: 'CalculatorCtrl',
         controllerAs: 'main'
@@ -76,7 +78,7 @@ angular
         controller: 'ContactCtrl',
         controllerAs: 'contact'
       })*/
-      .when('/eto_tracker', {
+      .when('/etc_tracker', {
         templateUrl: 'views/calculator.html',
         controller: 'CalculatorCtrl',
         controllerAs: 'calculator'

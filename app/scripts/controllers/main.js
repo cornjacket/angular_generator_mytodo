@@ -14,7 +14,9 @@ angular.module('mytodoApp')
     // NOT SURE WHAT TO DO WITH THIS, IF THIS IS NEEDED. I WANT AN EASY WAY TO LOGIN FOR THE USER.
     
     var previousUser = localStorageService.get('previousUser');
-
+    
+    $scope.username = "guest";
+    $scope.password = "1234";
     $scope.user = {};
 
     // fake userService just for quick testing
@@ -31,13 +33,13 @@ angular.module('mytodoApp')
       $scope.user.name = userService.get();
       $scope.loggedIn = userService.get() !== null;
       if ($scope.loggedIn) {
-        $location.path('/eto_tracker');
+        $location.path('/etc_tracker');
       }
     };
  
     $scope.logout = function() {
-      $scope.username = null;
-      $scope.password = null;
+      $scope.username = "guest";
+      $scope.password = "1234";
       userService.logout();
       $scope.loggedIn = false;
       $location.path('/');

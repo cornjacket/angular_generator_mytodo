@@ -19,7 +19,8 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css"> 
     <!-- endbuild -->
-    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet"> <!-- DRT - is this the way to include -->
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css">
     <link rel="icon" 
       type="image/png" 
       href="images/logo57X571.png">
@@ -65,7 +66,7 @@
             
             <ul class="nav navbar-nav navbar-right">
                 <li role="seperator" class="divider"></li>
-                <li ng-show="loggedIn"><a href="#/calculator">ETo Tracker</a></li> 
+                <li ng-show="loggedIn"><a href="#/calculator">ETc Tracker</a></li> 
                 <!--<li ng-show="loggedIn"><a href="#/dashboard">Dashboard</a></li>
                 <li ng-show="loggedIn"><a href="#/snapshot">Daily Snapshot</a></li>
                 <li ng-show="loggedIn"><a href="#/irrigation">Irrigation Planning</a></li>
@@ -103,7 +104,7 @@
         <div id="sidebar-wrapper" ng-class="{ 'no-display': !loggedIn}" >
             <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
                 <li ng-show="loggedIn" class="ng-cloak"> <!-- class="active"> disabled for now -->
-                    <a href="#/eto_tracker"><span class="fa-stack fa-lg"><i class="fa fa-calculator fa-stack-1x block-tablet"></i></span><span class="hide-tablet side-navbar-text">ETo Tracker</span></a>                       
+                    <a href="#/etc_tracker"><span class="fa-stack fa-lg"><i class="fa fa-calculator fa-stack-1x block-tablet"></i></span><span class="hide-tablet side-navbar-text">ETc Tracker</span></a>                       
                 </li> 
                 <!--<li ng-show="loggedIn" class="ng-cloak"> <!-- class="active"> disabled for now -->
                 <!--    <a href="#/dashboard"><span class="fa-stack fa-lg"><i class="fa fa-dashboard fa-stack-1x "></i></span><span class="hide-tablet">Dashboard</span></a>                       
@@ -220,6 +221,9 @@
 
     <script src='bower_components/angular-ui-map/ui-map.js'></script> <!-- why doesnt bower add this in by itself -->
     <script src='bower_components/angular-ui-utils/index.js'></script>
+    <script src='bower_components/angular-bootstrap/ui-bootstrap-tpls.js'></script>
+    <script src='bower_components/Chart.js/Chart.js'></script>
+    <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
@@ -235,6 +239,7 @@
         <script src="scripts/controllers/map.js"></script>
         <script src="scripts/controllers/login.js"></script>
         <script src="scripts/services/userservice.js"></script>
+        <script src="scripts/services/updateservice.js"></script>
         <!-- endbuild -->
         
         

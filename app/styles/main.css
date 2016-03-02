@@ -381,7 +381,7 @@ http://startbootstrap.com/template-overviews/simple-sidebar/ */
     margin-left: 0;
 }*/
 
-.map {position: relative; height:400px; top: 0; right: 0; bottom: 0; left: 0; width: 100%; }
+.map {position: relative; height:400px; top: 0; right: 0; bottom: 0; left: 0; width: 100%; border: 1px solid black;}
 /*.map { height: 400px; width: 50%; margin-top: 10px; margin-bottom: 10px; }*/
 
 /*.side-navbar-icon { padding-left: 0; } this doesnt work on glyphicon */
