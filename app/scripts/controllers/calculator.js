@@ -8,7 +8,7 @@
  * Controller of the mytodoApp
  */
 angular.module('mytodoApp')
-  .controller('CalculatorCtrl', function ($scope, $log, localStorageService, locationService, userService) {
+  .controller('CalculatorCtrl', function ($scope, $log, localStorageService, locationService, userService, updateService) {
 
     $scope.addMarker = function(event, params) {
       console.log("addMarker() invoked.");
@@ -33,22 +33,7 @@ angular.module('mytodoApp')
     };
 
     var update_dailies = function() {
-      $scope.dailies = $scope.locations.map(function(location) {
-          var prediction1 =  1.0; //(Math.floor((Math.random() ) + 1)+Math.random()).toFixed(2);
-          var prediction2 =  1.0; //(Math.floor((Math.random() ) + 1)+Math.random()).toFixed(2);
-          var prediction3 =  1.0; //(Math.floor((Math.random() ) + 1)+Math.random()).toFixed(2);
-          var prediction4 =  1.0; //(Math.floor((Math.random() ) + 1)+Math.random()).toFixed(2);        
-          
-          return {
-            date:                 Date.now(),
-            name:                 location.name,
-            prediction1:          prediction1,
-            prediction2:          prediction2,
-            prediction3:          prediction3,
-            prediction4:          prediction4,
-            fourDayETo_prediction: 5 //(prediction1+prediction2+prediction3+prediction4)
-          };
-        });
+      $scope.dailies = updateService.get($scope.locations);
     };
 
     var update_history = function() {
@@ -108,6 +93,7 @@ angular.module('mytodoApp')
             altitude: 0,
             adj:     0
           };
+          
       update_dailies();
       update_history();
       $scope.showLocationDetails = false;

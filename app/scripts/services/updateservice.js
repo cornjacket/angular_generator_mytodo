@@ -12,12 +12,29 @@ angular.module('mytodoApp')
     // Service logic
     // ...
 
-    var meaningOfLife = 42;
-
-    // Public API here
+        // Public API here
     return {
-      someMethod: function () {
-        return meaningOfLife;
+      get: function (locations) {
+        
+          var dailies = locations.map(function(location) {
+            var prediction1 =  1.0; 
+            var prediction2 =  1.0; 
+            var prediction3 =  1.0; 
+            var prediction4 =  1.0;         
+          
+            return {
+              date:                 Date.now(),
+              name:                 location.name,
+              prediction1:          prediction1,
+              prediction2:          prediction2,
+              prediction3:          prediction3,
+              prediction4:          prediction4,
+              fourDayETo_prediction: 5 //(prediction1+prediction2+prediction3+prediction4)
+            };
+          });        
+        
+          return dailies;
       }
     };
+    
   });
