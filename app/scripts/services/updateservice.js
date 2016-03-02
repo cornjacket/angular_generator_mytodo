@@ -5,9 +5,19 @@
  * @name mytodoApp.updateService
  * @description
  * # updateService
- * Service in the mytodoApp.
+ * Factory in the mytodoApp.
  */
 angular.module('mytodoApp')
-  .service('updateService', function () {
-    // AngularJS will instantiate a singleton by calling "new" on this function
+  .factory('updateService', function () {
+    // Service logic
+    // ...
+
+    var meaningOfLife = 42;
+
+    // Public API here
+    return {
+      someMethod: function () {
+        return meaningOfLife;
+      }
+    };
   });
