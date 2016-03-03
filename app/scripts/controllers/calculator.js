@@ -8,7 +8,8 @@
  * Controller of the mytodoApp
  */
 angular.module('mytodoApp')
-  .controller('CalculatorCtrl', function ($scope, $log, localStorageService, locationService, userService, updateService) {
+  .controller('CalculatorCtrl', function ($scope, $log, localStorageService, locationService, userService, 
+              updateService, predictionHistoryService) {
 
     $scope.addMarker = function(event, params) {
       console.log("addMarker() invoked.");
@@ -36,16 +37,18 @@ angular.module('mytodoApp')
       $scope.dailies = updateService.get($scope.locations);
     };
 
-    var update_history = function() {
+    var update_prediction_history = function() {
       // for 30 days do the following
       //   iterate over each daily, 
       //     create a new history record and save each daily's values into new history record
       //     add i days to the new history record's date
       //     add new history record to the list of all histories
-      console.log("Mocking history");
+      //console.log("Mocking history");
     
-      var next_day_history; // keep track of all the updates for the next day
-      $scope.history = [];
+      //var next_day_history; // keep track of all the updates for the next day
+      $scope.history = predictionHistoryService.get($scope.dailies)
+      
+      /*[];
       for (var day=1; day<29; day=day+1) {
         next_day_history = $scope.dailies.map(function(daily) {
           //var num = Number(daily.prediction1)+Math.random();
@@ -69,6 +72,7 @@ angular.module('mytodoApp')
         $scope.history = $scope.history.concat(next_day_history);
         console.log(next_day_history);
       }
+      */
       console.log("Full history");
       console.log($scope.history);
     };
@@ -95,7 +99,7 @@ angular.module('mytodoApp')
           };
           
       update_dailies();
-      update_history();
+      update_prediction_history();
       $scope.showLocationDetails = false;
     };    
     
@@ -108,7 +112,7 @@ angular.module('mytodoApp')
     $scope.removeLocation = function (index) {
       $scope.locations.splice(index, 1);
       update_dailies();
-      update_history();
+      update_prediction_history();
     };
 
     $scope.showGraph           = true;
@@ -147,7 +151,7 @@ angular.module('mytodoApp')
     }, true);    
     
     update_dailies();
-    update_history();
+    update_prediction_history();
     
     console.log(locationService.someMethod());
     console.log($scope.mapOptions);
